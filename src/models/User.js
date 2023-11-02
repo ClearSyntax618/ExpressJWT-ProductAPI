@@ -1,7 +1,7 @@
 import { Sequelize, DataTypes } from "sequelize";
-import Role from "./Role.js";
+import {POSTGRES_URI} from '../config/index.js';
 
-const sequelize = new Sequelize('URI');
+const sequelize = new Sequelize(POSTGRES_URI);
 
 const User = sequelize.define('User', {
     username: {
@@ -17,10 +17,14 @@ const User = sequelize.define('User', {
     },
     password: {
         type: DataTypes.STRING,
-        unique: true
+        unique: true,
+        allowNull: false
     },
-})
-
-User.belongsToMany(Role);
+},
+    {
+        timestamps: true,
+        version: false,
+    }
+)
 
 export default User;

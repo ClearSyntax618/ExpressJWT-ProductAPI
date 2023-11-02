@@ -1,16 +1,13 @@
 import { Sequelize, DataTypes } from "sequelize";
-import User from "./User.js";
+import {POSTGRES_URI} from '../config/index.js';
 
 export const ROLE = ['user', 'admin', 'mod'];
 
-const sequelize = new Sequelize('URI');
+const sequelize = new Sequelize(POSTGRES_URI);
 
 const Role = sequelize.define('Role', {
     // Atributos del modelo se definen aqui
     role: DataTypes.STRING,
 });
-
-
-Role.belongsToMany(User);
 
 export default Role;
