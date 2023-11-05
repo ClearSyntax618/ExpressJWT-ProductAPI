@@ -9,6 +9,7 @@ Role.hasMany(User, {
     onUpdate: 'CASCADE'
 });
 
+Role.belongsTo(User, { foreignKey: 'userId'})
 Product.belongsTo(User, { foreignKey: 'userId' });
 
 export {User, Role, Product};

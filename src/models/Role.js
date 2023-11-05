@@ -7,6 +7,11 @@ const sequelize = new Sequelize(POSTGRES_URI);
 
 const Role = sequelize.define('Role', {
     // Atributos del modelo se definen aqui
+    id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true
+    },
     role: DataTypes.STRING,
 });
 
